@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class Imenik {
 
-    HashMap<String, TelefonskiBroj> mapa;
+    private HashMap<String, TelefonskiBroj> mapa;
 
     public Imenik() {
         mapa = new HashMap<>();
@@ -40,8 +40,14 @@ public class Imenik {
     public Set<String> izGrada(FiksniBroj g) {
         Set<String> temp = new HashSet<>();
         for(Map.Entry<String, TelefonskiBroj> ulaz : mapa.entrySet()) {
-
+            TelefonskiBroj broj = mapa.get(ulaz.getKey());
+            if(broj instanceof FiksniBroj) {
+                if(((FiksniBroj) broj).getGrad() == g) {
+                    temp.add(ulaz.getKey());
+                }
+            }
         }
+        return temp;
     }
 
     public Set<TelefonskiBroj> izGradaBrojevi(FiksniBroj g) {
