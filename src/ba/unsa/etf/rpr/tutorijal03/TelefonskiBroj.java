@@ -9,4 +9,5 @@ abstract public class TelefonskiBroj {
 
     @Override
     public abstract boolean equals(Object obj);
+
 }
