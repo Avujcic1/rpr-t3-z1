@@ -20,11 +20,11 @@ public class FiksniBroj extends TelefonskiBroj {
     }
 
     private Grad grad;
-    private String broj;
+    private String fiksni = "";
 
     public FiksniBroj(Grad grad, String broj) {
         this.grad = grad;
-        this.broj = broj;
+        fiksni = broj;
     }
 
     public Grad getGrad() {
@@ -36,20 +36,20 @@ public class FiksniBroj extends TelefonskiBroj {
     }
 
     public String getBroj() {
-        return broj;
+        return fiksni;
     }
 
     public void setBroj(String broj) {
-        this.broj = broj;
+        this.fiksni = broj;
     }
 
     @Override
     public String ispisi() {
-        return getGrad().getPozivni() + "/" + broj;
+        return getGrad().getPozivni() + "/" + fiksni;
     }
 
     @Override
     public int hashCode() {
-        return 0;
+        return fiksni.hashCode();
     }
 }

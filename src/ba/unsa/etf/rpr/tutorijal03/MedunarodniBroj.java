@@ -2,21 +2,25 @@ package ba.unsa.etf.rpr.tutorijal03;
 
 public class MedunarodniBroj extends TelefonskiBroj {
 
-    private String drzava;
     private String broj;
 
     public MedunarodniBroj(String drzava, String broj) {
-        this.drzava = drzava;
-        this.drzava = broj;
+        this.broj = drzava + "/" + broj;
     }
 
     @Override
     public String ispisi() {
-        return drzava + broj;
+        return broj;
     }
 
     @Override
     public int hashCode() {
-        return 0;
+        return broj.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        MedunarodniBroj temp = (MedunarodniBroj) obj;
+        return (broj.equals(temp.broj));
     }
 }

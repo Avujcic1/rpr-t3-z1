@@ -2,21 +2,25 @@ package ba.unsa.etf.rpr.tutorijal03;
 
 public class MobilniBroj extends TelefonskiBroj {
 
-    private int mob;
     private String broj;
 
     public MobilniBroj(int mob, String broj) {
-        this.mob = mob;
-        this.broj = broj;
+        this.broj += "0" + mob + "/" + broj;
     }
 
     @Override
     public int hashCode() {
-        return 0;
+        return broj.hashCode();
     }
 
     @Override
     public String ispisi() {
-        return "0" + mob + "/" + broj;
+        return broj;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        MobilniBroj temp = (MobilniBroj) obj;
+        return broj.equals(temp.broj);
     }
 }
