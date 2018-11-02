@@ -5,7 +5,6 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import ba.unsa.etf.rpr.tutorijal03.FiksniBroj.Grad.*;
 
 
 public class Imenik {
@@ -33,7 +32,7 @@ public class Imenik {
         int brojac = 1;
         for(Map.Entry<String, TelefonskiBroj> ulaz : mapa.entrySet()) {
             if(ulaz.getKey().charAt(0) == s) {
-                temp += brojac + ". " + ulaz.getKey() + " - " + ulaz.getValue().ispisi() + "\n";
+                temp = brojac + ". " + ulaz.getKey() + " - " + ulaz.getValue().ispisi() + "\n";
                 brojac++;
             }
         }
