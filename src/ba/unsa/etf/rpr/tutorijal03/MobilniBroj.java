@@ -20,7 +20,7 @@ public class MobilniBroj extends TelefonskiBroj {
 
     @Override
     public boolean equals(Object obj) {
-        MobilniBroj temp = (MobilniBroj) obj;
+        MobilniBroj temp = (MobilniBroj)obj;
         return broj.equals(temp.broj);
     }
 }
