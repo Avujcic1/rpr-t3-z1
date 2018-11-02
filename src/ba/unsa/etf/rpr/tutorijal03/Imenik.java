@@ -7,9 +7,10 @@ import java.util.Set;
 
 import ba.unsa.etf.rpr.tutorijal03.FiksniBroj.Grad.*;
 
+
 public class Imenik {
 
-    private HashMap<String, TelefonskiBroj> mapa;
+    private Map<String, TelefonskiBroj> mapa;
 
     public Imenik() {
         mapa = new HashMap<>();
@@ -39,13 +40,31 @@ public class Imenik {
         return temp;
     }
 
-    public Set<String> izGrada(FiksniBroj g) {
-
+    public Set<String> izGrada(FiksniBroj.Grad g) {
+        Set<String> temp = new HashSet<>();
+        for(Map.Entry<String, TelefonskiBroj> ulaz : mapa.entrySet()) {
+            TelefonskiBroj broj = mapa.get(ulaz.getKey());
+            if (broj instanceof FiksniBroj) {
+                if (((FiksniBroj) broj).getGrad() == g) {
+                    temp.add(ulaz.getKey());
+                }
+            }
+        }
+        return temp;
     }
 
-    public Set<TelefonskiBroj> izGradaBrojevi(FiksniBroj g) {
-
+    public Set<TelefonskiBroj> izGradaBrojevi(FiksniBroj.Grad g){
+        Set<TelefonskiBroj> broj = new HashSet<>();
+        for (Map.Entry<String,TelefonskiBroj> ulaz : mapa.entrySet()) {
+            TelefonskiBroj telefoni = mapa.get(ulaz.getKey());
+            if (telefoni instanceof  FiksniBroj) {
+                if (g == ((FiksniBroj) telefoni).getGrad())
+                    broj.add(telefoni);
+            }
+        }
+        return broj;
     }
+
 
 
 }
