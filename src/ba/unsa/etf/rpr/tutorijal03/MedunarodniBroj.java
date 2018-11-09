@@ -9,12 +9,12 @@ public class MedunarodniBroj extends TelefonskiBroj {
     }
 
     @Override
-    public String ispisi() {
+    public final String ispisi() {
         return broj;
     }
 
     @Override
-    public int hashCode() {
+    public final int hashCode() {
         return broj.hashCode();
     }
 

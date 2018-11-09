@@ -27,39 +27,39 @@ public class FiksniBroj extends TelefonskiBroj {
         this.broj = broj;
     }
 
-    public Grad getGrad() {
+    public final Grad getGrad() {
         return grad;
     }
 
-    public void setGrad(Grad grad) {
-        this.grad = grad;
+    public final void setGrad(Grad grad1) {
+        this.grad = grad1;
     }
 
-    public String getBroj() {
+    final String getBroj() {
         return broj;
     }
 
-    public void setBroj(String broj) {
+    final void setBroj(String broj) {
         this.broj = broj;
     }
 
     @Override
-    public String ispisi() {
+    public final String ispisi() {
         return getGrad().getPozivni() + "/" + broj;
     }
 
     @Override
-    public int hashCode() {
+    public final int hashCode() {
         return broj.hashCode();
     }
 
     @Override
-    public boolean equals (Object obj) {
+    public final boolean equals (Object obj) {
         FiksniBroj broj = (FiksniBroj) obj;
         return broj.equals(broj.broj);
     }
 
-    public int compareTo(Object obj) {
+    public final int compareTo(Object obj) {
         FiksniBroj novi = (FiksniBroj) obj;
         return ispisi().compareTo(novi.ispisi());
     }

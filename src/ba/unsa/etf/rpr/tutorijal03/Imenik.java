@@ -19,7 +19,7 @@ public class Imenik {
         mapa.put(ime, broj);
     }
 
-    public String dajBroj(String ime) {
+    public final String dajBroj(String ime) {
         return mapa.get(ime).ispisi();
     }
 
@@ -30,8 +30,8 @@ public class Imenik {
     public String naSlovo(char s) {
         String temp = " ";
         int brojac = 1;
-        for(Map.Entry<String, TelefonskiBroj> ulaz : mapa.entrySet()) {
-            if(ulaz.getKey().charAt(0) == s) {
+        for (Map.Entry<String, TelefonskiBroj> ulaz : mapa.entrySet()) {
+            if (ulaz.getKey().charAt(0) == s) {
                 temp = brojac + ". " + ulaz.getKey() + " - " + ulaz.getValue().ispisi() + "\n";
                 brojac++;
             }
@@ -41,29 +41,24 @@ public class Imenik {
 
     public Set<String> izGrada(FiksniBroj.Grad g) {
         Set<String> temp = new HashSet<>();
-        for(Map.Entry<String, TelefonskiBroj> ulaz : mapa.entrySet()) {
+        for (Map.Entry<String, TelefonskiBroj> ulaz : mapa.entrySet()) {
             TelefonskiBroj broj = mapa.get(ulaz.getKey());
-            if (broj instanceof FiksniBroj) {
-                if (((FiksniBroj) broj).getGrad() == g) {
-                    temp.add(ulaz.getKey());
-                }
+            if ((broj instanceof FiksniBroj) && ((FiksniBroj) broj).getGrad() == g) {
+                temp.add(ulaz.getKey());
             }
         }
         return temp;
     }
 
-    public Set<TelefonskiBroj> izGradaBrojevi(FiksniBroj.Grad g){
+    public Set<TelefonskiBroj> izGradaBrojevi(FiksniBroj.Grad g) {
         Set<TelefonskiBroj> broj = new HashSet<>();
-        for (Map.Entry<String,TelefonskiBroj> ulaz : mapa.entrySet()) {
+        for (Map.Entry<String, TelefonskiBroj> ulaz : mapa.entrySet()) {
             TelefonskiBroj telefoni = mapa.get(ulaz.getKey());
-            if (telefoni instanceof  FiksniBroj) {
-                if (g == ((FiksniBroj) telefoni).getGrad())
-                    broj.add(telefoni);
+            if ((telefoni instanceof FiksniBroj) && (g == ((FiksniBroj) telefoni).getGrad())) {
+                broj.add(telefoni);
             }
         }
         return broj;
     }
-
-
-
 }
+
